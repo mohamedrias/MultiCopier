@@ -1,0 +1,11 @@
+body {
+    width: 500px;
+    height: auto;
+    padding: 0px 10px 10px;
+}
+
+section > header {
+    text-align: left;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 10px;
+}

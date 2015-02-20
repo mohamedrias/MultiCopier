@@ -1,0 +1,26 @@
+<html data-ng-app="multicopier" data-ng-csp>
+<head>
+    <script type="text/javascript" src="../common/lib/angular.js"></script>
+    <script type="text/javascript" src="../common/lib/jquery-2.0.3.min.js"></script>
+    <script type="text/javascript" src="../common/lib/moment.min.js"></script>
+    <link href="../common/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="../common/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="../common/css/style.css" rel="stylesheet" type="text/css">
+    <link href="popup.css" rel="stylesheet" type="text/css">
+</head>
+<body data-ng-controller="PopupController">
+<section id="main">
+    <header>
+        <h1>Multicopier</h1>
+    </header>
+    <ul>
+        <li data-ng-repeat="item in data track by item.date">
+            {{item.val}}
+        </li>
+    </ul>
+</section>
+<script type="text/javascript" src="../app.js"></script>
+<script type="text/javascript" src="../common/js/multicopier.service.js"></script>
+<script type="text/javascript" src="../popup/popup.controller.js"></script>
+</body>
+</html>
