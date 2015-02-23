@@ -12,12 +12,40 @@
 <section id="main">
     <header>
         <h1>Multicopier</h1>
+        <div class="btn-group btn-group-xs pull-right" id="tools">
+            <div class="btn btn-default" id="clear" ng-click="clearAll()">
+                <span class="fa fa-times"></span> Clear all
+            </div>
+
+            <div class="btn btn-default" id="refresh"  ng-click="refresh">
+                <span class="fa fa-refresh"></span> Refresh
+            </div>
+        </div>
     </header>
-    <ul>
-        <li data-ng-repeat="item in data track by item.date">
-            {{item.val}}
-        </li>
-    </ul>
+
+    <table id="history-table" class="table table-condensed">
+
+        <tr data-ng-repeat="item in data track by item.date | orderBy : 'item.date'">
+        <td class="time-ago" data-date='{{item.date}}'>
+            <span class="label label-success">{{item.date | fromNow}}</span>
+        </td>
+            <td class="paste-text">
+             {{item.val}}
+             </td>
+           <td class="delete-text"><button class="btn btn-default btn-xs" ng-click="deleteItem(item);">
+            <span class="fa fa-times text-muted"></span></button></td>
+
+            <td class="show-text hideNow"><button class="btn btn-default btn-xs">
+            <span class="fa fa-eye text-muted"></span></button></td>
+            <td class="count text-muted hideNow" >{{item.val.length}}</td>
+        </tr>
+        <tr ng-if="data.length ==0">
+            <td>
+                There's nothing in the clipboard manager.
+            </td>
+        </tr>
+    </table>
+
 </section>
 <script type="text/javascript" src="../app.js"></script>
 <script type="text/javascript" src="../common/js/multicopier.service.js"></script>

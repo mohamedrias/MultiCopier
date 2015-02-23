@@ -14,6 +14,7 @@ angular.module("multicopier.background",[])
 		multicopierService.$selector = $("#secret-sauce #copier");
 
 		multicopierService.readLocalStorage = function () {
+			multicopierService.dataStore = ((localStorage.multicopier) ? JSON.parse(localStorage.multicopier) :  [])
 			return ((localStorage.multicopier) ? JSON.parse(localStorage.multicopier) :  []);
 		}
 
@@ -57,7 +58,7 @@ angular.module("multicopier.background",[])
 
 		setInterval(function() {
 			multicopierService.onCopy();
-		},300);
+		},1000);
 
 		return multicopierService;
 	});

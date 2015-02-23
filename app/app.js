@@ -8,4 +8,4 @@
 
 "use strict";
 
-angular.module("multicopier", [])
+angular.module("multicopier", []);

@@ -24,8 +24,16 @@ angular.module("multicopier")
 
 		multicopierService.dataStore = multicopierService.readLocalStorage();
 
+		multicopierService.clearAll = function() {
+			localStorage.setItem("multicopier", JSON.stringify([]));
+			multicopierService.dataStore = multicopierService.readLocalStorage();
+		};
+		multicopierService.deleteItem = function(item) {
+				multicopierService.dataStore.splice(multicopierService.dataStore.indexOf(item),1);
+				localStorage.setItem("multicopier", JSON.stringify(multicopierService.dataStore));
+		};
 		setInterval(function() {
 			multicopierService.dataStore = multicopierService.readLocalStorage();
-		}, 200);
+		}, 1000);
 		return multicopierService;
 	});

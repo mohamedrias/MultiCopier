@@ -9,3 +9,16 @@ section > header {
     border-bottom: 1px solid #eee;
     margin-bottom: 10px;
 }
+
+section > header > h1 {
+    width: 50%;
+    float: left;
+}
+
+div#tools {
+    top: 30px;
+}
+
+.hideNow {
+    display: none;
+}
